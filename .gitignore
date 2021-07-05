@@ -1,0 +1,36 @@
+﻿*.lock
+*.ide
+*.ide-shm
+*.ide-wal
+*.suo
+*.exe
+*.config
+*.pdb
+*.xml
+Birthday Calendar/bin/Release/Newtonsoft.Json.dll
+Birthday Calendar/bin/Debug/Newtonsoft.Json.dll
+*.cache
+*.CopyComplete
+*.txt
+packages/Newtonsoft.Json.13.0.1/lib/netstandard2.0/Newtonsoft.Json.dll
+packages/Newtonsoft.Json.13.0.1/lib/netstandard1.3/Newtonsoft.Json.dll
+packages/Newtonsoft.Json.13.0.1/lib/netstandard1.0/Newtonsoft.Json.dll
+packages/Newtonsoft.Json.13.0.1/lib/net45/Newtonsoft.Json.dll
+packages/Newtonsoft.Json.13.0.1/lib/net40/Newtonsoft.Json.dll
+*._
+packages/System.Runtime.4.3.1/ref/netcore50/System.Runtime.dll
+packages/System.Runtime.4.3.1/ref/netstandard1.0/System.Runtime.dll
+packages/System.Runtime.4.3.1/ref/netstandard1.2/System.Runtime.dll
+packages/System.Runtime.4.3.1/ref/net462/System.Runtime.dll
+packages/System.Runtime.4.3.1/ref/netstandard1.3/System.Runtime.dll
+packages/System.Runtime.4.3.1/ref/netstandard1.5/System.Runtime.dll
+*.p7s
+*.nupkg
+packages/System.Runtime.4.3.1/lib/net462/System.Runtime.dll
+packages/Newtonsoft.Json.13.0.1/lib/net35/Newtonsoft.Json.dll
+packages/Newtonsoft.Json.13.0.1/lib/net20/Newtonsoft.Json.dll
+packages/Newtonsoft.Json.13.0.1/lib/net20/Newtonsoft.Json.dll
+*.md
+packages/Newtonsoft.Json.13.0.1/packageIcon.png
+Birthday Calendar/obj/Debug
+Birthday Calendar/obj/Release
