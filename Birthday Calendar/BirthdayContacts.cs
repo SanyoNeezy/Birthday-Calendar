@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace Birthday_Calendar
 {
@@ -58,36 +59,51 @@ namespace Birthday_Calendar
         }
 
         public const string cDateFormat = "dd/MM/yyyy";
+        private const string cJsonFileName = "\\birthdates.json";
 
-        private const string cJsonPath = @"C:\Users\Sanyo Neezy\Application Data\Birthday Calendar By Sanyo Neezy\birthdates.json";
+        private static string getJsonDirectory()
+        {
+            return Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData) + @"\Birthday Calendar By Sanyo Neezy";
+        }
+
+        private static string getJsonPath()
+        {
+            return getJsonDirectory() + cJsonFileName;
+        }
 
         private static List<Person> readContactsFromFileSystem()
         {
-            var json = File.ReadAllText(cJsonPath);
             var formatProvider = new IsoDateTimeConverter();
             formatProvider.DateTimeFormat = cDateFormat;
+            var jsonDirectory = getJsonDirectory();
+            var jsonPath = jsonDirectory + cJsonFileName;
+            var contacts = new List<Person>();
+            string jsonFileText = string.Empty;
+
             try
             {
-                var contacts = JsonConvert.DeserializeObject<List<Person>>(json, formatProvider);
-                return contacts is null ? new List<Person>() : contacts;
+                if (!Directory.Exists(jsonDirectory)) Directory.CreateDirectory(jsonDirectory);
+
+                if (!File.Exists((jsonPath))) File.Create(jsonPath);
+
+                jsonFileText = File.ReadAllText(jsonPath);
             }
-            catch (Exception)
+            catch (Exception e)
             {
-                return null;
+                MessageBox.Show("Oh lol fail. Frag Sascha nomma und schicke ihm diese Meldung:\nFehler beim Erzeugen des JsonDirectory.\n\n" + e.Message);
             }
-        }
 
-        private static void WriteContactsToFileSystem(List<Person> contacts)
-        {
+            if (jsonFileText.Length > 0)
+                try
+                {
+                    contacts = JsonConvert.DeserializeObject<List<Person>>(jsonFileText, formatProvider);
+                }
+                catch (Exception e)
+                {
+                    MessageBox.Show("Oh lol fail. Frag Sascha nomma und schicke ihm diese Meldung:\nFehler beim Deserialisieren der JSON Datei.\n\n" + e.Message);
+                }
+            return contacts;
 
-            JsonSerializer serializer = new JsonSerializer();
-            serializer.Converters.Add(new JavaScriptDateTimeConverter());
-
-            using (StreamWriter sw = new StreamWriter(cJsonPath))
-            using (JsonWriter writer = new JsonTextWriter(sw))
-            {
-                serializer.Serialize(writer, contacts);
-            }
         }
 
         public static string editBirthday(Person personRemoved, Person personAdded)
@@ -121,6 +137,19 @@ namespace Birthday_Calendar
             return true;
         }
 
+        private void updateContactsFile(List<Person> contacts)
+        {
+            JsonSerializer serializer = new JsonSerializer();
+            serializer.Converters.Add(new JavaScriptDateTimeConverter());
+
+            using (StreamWriter sw = new StreamWriter(getJsonPath()))
+            using (JsonWriter writer = new JsonTextWriter(sw))
+            {
+                serializer.Serialize(writer, contacts);
+            }
+        }
+
+
 
         public static bool removeBirthdayFromContacts(string name, DateTime dateOfBirth)
         {
@@ -148,16 +177,6 @@ namespace Birthday_Calendar
             return contactsWithNearBdays;
         }
 
-        private void updateContactsFile(List<Person> contacts)
-        {
-            JsonSerializer serializer = new JsonSerializer();
-            serializer.Converters.Add(new JavaScriptDateTimeConverter());
 
-            using (StreamWriter sw = new StreamWriter(cJsonPath))
-            using (JsonWriter writer = new JsonTextWriter(sw))
-            {
-                serializer.Serialize(writer, contacts);
-            }
-        }
     }
 }

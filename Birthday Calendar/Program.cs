@@ -30,6 +30,8 @@ namespace Birthday_Calendar
 
             people.ForEach(person => nearingBirthdatesFormatString += person.name + "\t-\t" + person.birthdate + "\n");
 
+            if (nearingBirthdatesFormatString.Equals(String.Empty)) nearingBirthdatesFormatString = "It's nobodys birthday in the next 30 days :(";
+
             string message = "### Birthday Reminder ###\n\n Birthdays for the next " + DateHandler.remindInAdvanceTimeSpan.Days + " days:\n\n" + nearingBirthdatesFormatString + "\nWould you like to add more entries?";
             string caption = "Nearing Birthdays";
             return DialogResult.Yes == MessageBox.Show(message, caption, MessageBoxButtons.YesNo,

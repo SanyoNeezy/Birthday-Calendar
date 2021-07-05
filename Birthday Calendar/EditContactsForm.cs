@@ -23,9 +23,13 @@ namespace Birthday_Calendar
 
         private void initializeInputFields()
         {
-            var firstRow = DGV_Contacts.Rows[0];
-            TB_Name.Text = firstRow.Cells[0].Value.ToString();
-            DTP_DateOfBirth.Value = DateTime.Parse(firstRow.Cells[1].Value.ToString());
+            if(DGV_Contacts.Rows.Count > 1)
+            {
+                var firstRow = DGV_Contacts.Rows[0];
+                TB_Name.Text = firstRow.Cells[0].Value.ToString();
+                DTP_DateOfBirth.Value = DateTime.Parse(firstRow.Cells[1].Value.ToString());
+            }
+            
         }
 
         List<Person> contacts;
