@@ -38,16 +38,18 @@
             // Calendar
             // 
             this.Calendar.CalendarDimensions = new System.Drawing.Size(2, 1);
-            this.Calendar.Location = new System.Drawing.Point(24, 18);
+            this.Calendar.Location = new System.Drawing.Point(32, 22);
+            this.Calendar.Margin = new System.Windows.Forms.Padding(12, 11, 12, 11);
             this.Calendar.MaxSelectionCount = 1;
             this.Calendar.Name = "Calendar";
             this.Calendar.TabIndex = 1;
             // 
             // Btn_AddBday
             // 
-            this.Btn_AddBday.Location = new System.Drawing.Point(225, 250);
+            this.Btn_AddBday.Location = new System.Drawing.Point(300, 308);
+            this.Btn_AddBday.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Btn_AddBday.Name = "Btn_AddBday";
-            this.Btn_AddBday.Size = new System.Drawing.Size(161, 37);
+            this.Btn_AddBday.Size = new System.Drawing.Size(215, 46);
             this.Btn_AddBday.TabIndex = 2;
             this.Btn_AddBday.Text = "Add Birthday";
             this.Btn_AddBday.UseVisualStyleBackColor = true;
@@ -55,9 +57,10 @@
             // 
             // Btn_ShowBdayList
             // 
-            this.Btn_ShowBdayList.Location = new System.Drawing.Point(22, 250);
+            this.Btn_ShowBdayList.Location = new System.Drawing.Point(29, 308);
+            this.Btn_ShowBdayList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Btn_ShowBdayList.Name = "Btn_ShowBdayList";
-            this.Btn_ShowBdayList.Size = new System.Drawing.Size(143, 37);
+            this.Btn_ShowBdayList.Size = new System.Drawing.Size(191, 46);
             this.Btn_ShowBdayList.TabIndex = 2;
             this.Btn_ShowBdayList.Text = "Show Birthday List";
             this.Btn_ShowBdayList.UseVisualStyleBackColor = true;
@@ -65,30 +68,33 @@
             // 
             // TB_Name
             // 
-            this.TB_Name.Location = new System.Drawing.Point(24, 212);
+            this.TB_Name.Location = new System.Drawing.Point(32, 261);
+            this.TB_Name.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.TB_Name.Name = "TB_Name";
-            this.TB_Name.Size = new System.Drawing.Size(362, 20);
+            this.TB_Name.Size = new System.Drawing.Size(481, 22);
             this.TB_Name.TabIndex = 3;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 193);
+            this.label1.Location = new System.Drawing.Point(32, 238);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.Size = new System.Drawing.Size(45, 17);
             this.label1.TabIndex = 4;
             this.label1.Text = "Name";
             // 
             // MainForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(404, 314);
+            this.ClientSize = new System.Drawing.Size(677, 476);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TB_Name);
             this.Controls.Add(this.Btn_ShowBdayList);
             this.Controls.Add(this.Btn_AddBday);
             this.Controls.Add(this.Calendar);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "MainForm";
             this.Text = "Form1";
             this.ResumeLayout(false);

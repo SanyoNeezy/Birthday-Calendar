@@ -58,7 +58,7 @@ namespace Birthday_Calendar
             }
         }
 
-        public const string cDateFormat = "dd/MM/yyyy";
+        public const string cDateFormat = "dd.MM.yyyy";
         private const string cJsonFileName = "\\birthdates.json";
 
         private static string getJsonDirectory()
