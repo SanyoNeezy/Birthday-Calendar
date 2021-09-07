@@ -16,17 +16,17 @@ namespace Birthday_Calendar
 
         public static bool birthdayIsNearing(DateTime dateOfBirth)
         {
-            return (getNextBirthday(dateOfBirth) >= DateTime.Today)
-               && (getNextBirthday(dateOfBirth) <= DateTime.Today + remindInAdvanceTimeSpan);
+            DateTime nextBday = getNextBirthday(dateOfBirth);
+            return (nextBday >= DateTime.Today)
+               && (nextBday <= DateTime.Today + remindInAdvanceTimeSpan);
         }
 
         public static DateTime getNextBirthday(DateTime dateOfBirth)
         {
-            var today = DateTime.Today;
             int year =
-                dateOfBirth.Month >= today.Month && dateOfBirth.Day >= today.Day
-                ? today.Year
-                : today.Year + 1;
+                dateOfBirth.Month > DateTime.Today.Month || (dateOfBirth.Month == DateTime.Today.Month && dateOfBirth.Day >= DateTime.Today.Day)
+                ? DateTime.Today.Year
+                : DateTime.Today.Year + 1;
             return new DateTime(year, dateOfBirth.Month, dateOfBirth.Day);
         }
     }

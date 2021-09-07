@@ -3,8 +3,6 @@
 *.ide-shm
 *.ide-wal
 *.suo
-*.exe
-*.config
 *.pdb
 *.xml
 Birthday Calendar/bin/Release/Newtonsoft.Json.dll
